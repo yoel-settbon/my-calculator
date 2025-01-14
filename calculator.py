@@ -1,29 +1,45 @@
+import os
 def calcul():
-    print("Welcome to the calculator")
-    print("1. Addition")
-    print("2. Substraction")
-    print("3. Multiplication")
-    print("4. Division")
-    print("5. Quit")
-    choice = input("Choose an opperation : ")
+    print ("Pick your opperation : ")
+    print ("1. Addition")
+    print ("2. Substraction")
+    print ("3. Multiplication")
+    print ("4. Division")
+    print ("5. Percentage")
+    print ("6. Quit")
+    choice = input("Pick an opperation : ")
+    os.system("cls")
     if choice == "1":
-        a = float(input("Choose you're firt number : "))
-        b = float(input("Choose tou're second number : "))
+        print ("So, you choose to do a addition, pick two numbers : ")
+        a = float(input("Pick you're firt number : "))
+        b = float(input("Pick tou're second number : "))
         print(f"The result is : {a + b}")
     elif choice == "2":
-        a = float(input("Choose you're first number : "))
-        b = float(input("Choose you're second number : "))
+        print ("So, you choose to do a substraction, pick two numbers : ")
+        a = float(input("Pick you're first number : "))
+        b = float(input("Pick you're second number : "))
         print(f"The result is : {a - b}")
-    elif choice == "3":
-        a = float(input("Choose you're first number : "))
-        b = float(input("Choose you're second number : "))
+    elif choice  == "3":
+        print ("So, you choose to do a multiplication, pick two numbers : ")
+        a = float(input("Pick you're first number : "))
+        b = float(input("Pick you're second number : "))
         print(f"The result is : {a * b}")
-    elif choice == "4":
-        a = float(input("Choose you're first number : "))
-        b = float(input("Choose you're second number : "))
+    elif choice  == "4":
+        print ("So, you choose to do a division, pick two numbers : ")
+        a = float(input("Pick you're first number : "))
+        b = float(input("Pick you're second number : "))
+        if b == 0:
+            print("you can't divide by 0 : ")
+            return calcul()
         print(f"The result is : {a / b}")
-    elif choice == "5":
-        print("Goodbye!")
+    elif choice  == "5":
+        print ("So, you choose to do a percentage, pick two numbers : ")       
+        a = float(input("Pick you're first number : "))
+        b = float(input("Pick you're second number : "))
+        print(f"The result is : {a % b}")
+    elif choice  == "6":
+        print("Have a nice day, see you later ! ")
     else:
-        print("Invalid choise")
+        print("No you've making a mistake, pick a number between 1 and 6 : ")
+        return calcul()
 calcul()
