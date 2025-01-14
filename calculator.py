@@ -6,7 +6,8 @@ def calcul():
     print ("3. Multiplication")
     print ("4. Division")
     print ("5. Percentage")
-    print ("6. Quit")
+    print ("6. Operation with 3 numbers")
+    print ("7. Quit")
     choice = input("Pick an opperation : ")
     os.system("cls")
     if choice == "1":
@@ -38,6 +39,45 @@ def calcul():
         b = float(input("Pick you're second number : "))
         print(f"The result is : {a % b}")
     elif choice  == "6":
+        print ("So, you choose to do a operation with 3 numbers, pick three numbers : ")
+        a = float(input("Pick you're first number : "))
+        operator = input("Pick an operator : ( +, *, -, / ) ")
+        b = float(input("Pick you're second number : "))
+        operator_ = input("Pick an operator : ( +, *, -, / ) ")
+        c = float(input("Pick you're third number : "))
+        if operator == "+" and operator_ == "+" :
+            print(f"The result is : {a + b + c}")
+        elif operator == "+" and operator_ == "-" :
+            print(f"The result is : {a + b - c}")
+        elif operator == "-" and operator_== "+" :
+            print(f"The result is : {a - b + c}")
+        elif operator == "-" and operator_ == "-" :
+            print(f"The result is : {a - b - c}")
+        elif operator == "*" and operator_ == "*" :
+            print(f"The result is : {a * b * c}")
+        elif operator == "*" and operator_ == "/" :
+            print(f"The result is : {a * b / c}")
+        elif operator == "/" and operator_ == "*" :
+            print(f"The result is : {a / b * c}")
+        elif operator == "*" and operator_ == "+" :
+            print(f"The result is : {a * b + c}")
+        elif operator == "*" and operator_ == "-" :
+            print(f"The result is : {a * b - c}")
+        elif operator == "+" and operator_ == "*" :
+            print(f"The result is : {b * c + a}")
+        elif operator == "-" and operator_ == "*" :
+            print(f"The result is : {b * c - a}")
+        elif operator == "/" and operator_ == "/" :
+            print(f"The result is : {a / b / c}")
+        elif operator == "/" and operator_ == "+" :
+            print(f"The result is : {a / b + c}")
+        elif operator == "/" and operator_ == "-" :
+            print(f"The result is : {a / b - c}")
+        elif operator == "+" and operator_ == "/" :
+            print (f"The result is : {b / c + a}")
+        elif operator == "-" and operator_ == "/" :
+            print(f"The result is : {b / c - a}")
+    elif choice  == "7":
         print("Have a nice day, see you later ! ")
     else:
         print("No you've making a mistake, pick a number between 1 and 6 : ")
