@@ -1,3 +1,5 @@
+import os
+
 def save_to_history(calculation):
     with open("calculator_history.txt", "a") as file:
         file.write(calculation + "\n")
@@ -14,14 +16,20 @@ def show_history():
     except FileNotFoundError:
         print("No history available.")
 
+def clear_history():
+    with open("calculator_history.txt", "w") as file:
+        file.write(" ")
+
 def calculator():
     while True:
         print("\nMenu:")
         print("1. Perform a calculation")
         print("2. View history")
-        print("3. Exit")
+        print("3. Clear history")
+        print("4. Exit")
         
         choice = input("Choose an option: ")
+        os.system('cls')
         
         if choice == "1":
             # Perform a calculation
@@ -50,6 +58,10 @@ def calculator():
             show_history()
         
         elif choice == "3":
+            print("History successfully cleaned !")
+            clear_history()
+
+        elif choice == "4":
             print("Goodbye!")
             break
         
