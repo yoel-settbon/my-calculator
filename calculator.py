@@ -1,5 +1,11 @@
 import os
 
+def delete_history():
+    try:
+        with open("calculs_historique.txt", "w") as file:
+            file.write("")
+    except Exception as e:
+        print(f"Erreur lors de la suppression du fichier : {e}")
 def save_history(result):
     try:
         with open("calculs_historique.txt", "a") as file:
@@ -13,8 +19,9 @@ def Menu():
         print ("1. One operator")
         print ("2. Two operators")
         print ("3. Show history")
-        print ("4. Quit")
-        choice = input("Do your choice 1, 2 or 3 : ")
+        print ("4. Delete history")
+        print ("5. Quit")
+        choice = input("Choose what you want to do : ")
         os.system("cls")
         if choice == "1":
             print ("So, you choose to do a operation with one operator : ")
@@ -23,14 +30,19 @@ def Menu():
             print ("So, you choose to do a operation with 3 numbers, pick three numbers : ")
             return multiple_operators()
         elif choice  == "3":
-            print ("You're gonna see the history of your calculations : ")
+            print ("This is the history of your calculations : ")
             with open("calculs_historique.txt", "r") as file:
                 for line in file:
                     print(line.strip())
+            return Menu()
         elif choice  == "4":
+            print ("You're gonna delete the history of your calculations : ")
+            delete_history()
+            return Menu()
+        elif choice  == "5":
             print ("Goodbye ! See you soon !")
         else:
-            print("No you've making a mistake, pick a number between 1 and 3 : ")
+            print("No you've making a mistake, pick a number between 1 and 5 : ")
             return Menu()
     except KeyboardInterrupt:
         print("\nYou're already leaving. Goodbye, see you soon!")
@@ -244,7 +256,7 @@ def calcul():
             print ("So you're back to the main menu.")
             return Menu()
         else:
-            print("You've making a mistake, pick a number between 1 and 6 : ")
+            print("You're making a mistake, pick a number between 1 and 6 : ")
             return calcul()
     except KeyboardInterrupt:
         print("\nOperation interrupted. You're back to the main menu.")
