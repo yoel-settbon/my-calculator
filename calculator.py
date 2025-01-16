@@ -23,10 +23,11 @@ def Menu():
             print ("So, you choose to do a operation with 3 numbers, pick three numbers : ")
             return multiple_operators()
         elif choice  == "3":
-            print ("You're going to see the history of your calculations : ")
-            with open("calculs_historique.txt", "r") as file:
+            print ("This is the history of your calculations : ")
+            with open("calculs_history.txt", "r") as file:
                 for line in file:
                     print(line.strip())
+            return Menu()
         elif choice  == "4":
             print ("Goodbye ! See you soon !")
         else:
