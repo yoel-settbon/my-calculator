@@ -1,17 +1,18 @@
 import os
+import time
 
 def delete_history():
     try:
-        with open("calculs_historique.txt", "w") as file:
+        with open("calculs_history.txt", "w") as file:
             file.write("")
     except Exception as e:
-        print(f"Erreur lors de la suppression du fichier : {e}")
+        print(f"Error deleting to files : {e}")
 def save_history(result):
     try:
-        with open("calculs_historique.txt", "a") as file:
+        with open("calculs_history.txt", "a") as file:
             file.write(result + "\n")
     except Exception as e:
-        print(f"Erreur lors de l'enregistrement dans le fichier : {e}")
+        print(f"Error saving to files : {e}")
         
 def Menu():
     try:
@@ -28,10 +29,12 @@ def Menu():
             return calcul()
         elif choice  == "2":
             print ("So, you choose to do a operation with 3 numbers, pick three numbers : ")
+            time.sleep(5)
+            os.system("cls")
             return multiple_operators()
         elif choice  == "3":
             print ("This is the history of your calculations : ")
-            with open("calculs_historique.txt", "r") as file:
+            with open("calculs_history.txt", "r") as file:
                 for line in file:
                     print(line.strip())
             return Menu()
@@ -195,7 +198,7 @@ def multiple_operators():
             save_history(f"Operation: {a} * {b} / {c} = {a * b / c}")
             return Menu()
     except KeyboardInterrupt:
-        print("\nOperation interrupted. Returning to main menu...")
+        print("\nOperation interrupted. You're back to the main menu.")
         return Menu()
 
 def calcul():
