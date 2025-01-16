@@ -1,5 +1,3 @@
-import os
-
 def save_to_history(calculation):
     with open("calculator_history.txt", "a") as file:
         file.write(calculation + "\n")
@@ -9,16 +7,19 @@ def show_history():
         with open("calculator_history.txt", "r") as file:
             content = file.read()
             if content.strip():
-                print("History:")
+                print("\nHistory:")
                 print(content)
             else:
-                print("No history available.")
+                print("\nNo history available.")
     except FileNotFoundError:
-        print("No history available.")
+        print("\nNo history available.")
+    input("\nPress Enter to continue...")  # Pause for user to read
 
 def clear_history():
     with open("calculator_history.txt", "w") as file:
-        file.write(" ")
+        file.write("")
+    print("\nHistory successfully cleaned!")
+    input("\nPress Enter to continue...")  # Pause for user to acknowledge
 
 def calculator():
     while True:
@@ -29,7 +30,6 @@ def calculator():
         print("4. Exit")
         
         choice = input("Choose an option: ")
-        os.system('cls')
         
         if choice == "1":
             # Perform a calculation
@@ -50,23 +50,25 @@ def calculator():
                 continue
             
             calculation = f"{num1} {operator} {num2} = {result}"
-            print(f"Result: {result}")
+            print(f"\nResult: {result}")
             save_to_history(calculation)
+            input("\nPress Enter to continue...")  # Pause for user to acknowledge
         
         elif choice == "2":
             # View history
             show_history()
         
         elif choice == "3":
-            print("History successfully cleaned !")
+            print("History successfully cleaned!")
             clear_history()
 
         elif choice == "4":
-            print("Goodbye!")
+            print("\nGoodbye!")
             break
         
         else:
             print("Invalid choice, please try again.")
+            input("\nPress Enter to continue...")  # Pause for user to acknowledge
 
 # Run the calculator
 calculator()
