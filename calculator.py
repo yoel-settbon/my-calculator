@@ -29,8 +29,6 @@ def Menu():
             return calcul()
         elif choice  == "2":
             print ("So, you choose to do a operation with 3 numbers, pick three numbers : ")
-            time.sleep(5)
-            os.system("cls")
             return multiple_operators()
         elif choice  == "3":
             print ("This is the history of your calculations : ")
@@ -39,16 +37,20 @@ def Menu():
                     print(line.strip())
             return Menu()
         elif choice  == "4":
-            print ("You're gonna delete the history of your calculations : ")
+            print ("You're history has been deleted : ")
             delete_history()
             return Menu()
         elif choice  == "5":
             print ("Goodbye ! See you soon !")
+            time.sleep(2)
+            os.system("cls")
         else:
             print("No you've making a mistake, pick a number between 1 and 5 : ")
             return Menu()
     except KeyboardInterrupt:
         print("\nYou're already leaving. Goodbye, see you soon!")
+        time.sleep(2)
+        os.system("cls")
         exit()
 
 def multiple_operators():
