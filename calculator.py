@@ -2,10 +2,10 @@ import os
 
 def save_history(result):
     try:
-        with open("calculs_historique.txt", "a") as file:
+        with open("calculs_history.txt", "a") as file:
             file.write(result + "\n")
     except Exception as e:
-        print(f"Erreur lors de l'enregistrement dans le fichier : {e}")
+        print(f"Error saving to the files : {e}")
         
 def Menu():
     try:
@@ -23,14 +23,14 @@ def Menu():
             print ("So, you choose to do a operation with 3 numbers, pick three numbers : ")
             return multiple_operators()
         elif choice  == "3":
-            print ("You're gonna see the history of your calculations : ")
+            print ("You're going to see the history of your calculations : ")
             with open("calculs_historique.txt", "r") as file:
                 for line in file:
                     print(line.strip())
         elif choice  == "4":
             print ("Goodbye ! See you soon !")
         else:
-            print("No you've making a mistake, pick a number between 1 and 3 : ")
+            print("No you're making a mistake, pick a number between 1 and 3 : ")
             return Menu()
     except KeyboardInterrupt:
         print("\nYou're already leaving. Goodbye, see you soon!")
