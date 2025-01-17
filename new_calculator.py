@@ -1,26 +1,30 @@
 def menu():
     print("1 - calculate with 2 terms")
     print("2 - calculate with 3 terms")
+    print("3 - Quit")
 
     while True:
         try:
-            user_input = int(input("choose an option : 1 or 2  "))
-            break
-        except:
-            ValueError
+            user_input = int(input("choose an option : 1, 2 or 3 "))
+
+        except ValueError:
             print("incorrect entry")
-            exit()
+            menu()
 
-    if user_input == 1:
-        print("first option")
-        calculator()
+        if user_input == 1:
+            print("first option")
+            calculator()
 
-    elif user_input == 2:
-        print("second option")
-        plusieurs_terme()
+        elif user_input == 2:
+            print("second option")
+            plusieurs_terme()
+
+        elif user_input == 3:
+            print("Quit")
+            break
   
-    else:
-        print("error")
+        else:
+            print("error")
 
 
 def calculator():
