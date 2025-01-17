@@ -63,40 +63,54 @@ def Menu():
 def multiple_operators():
     # function to do a operation with 3 numbers and 2 operators
     try:
-        a = float(input("Pick you're first number : "))
+        try:
+
+            a = float(input("Pick you're first number : "))
+        except ValueError:
+            # if you've choice is not a number, you will go back to the previous step
+            print("You've making a mistake, pick a number : ")
+            return multiple_operators()
         operator = input("Pick an operator : ( +, *, -, / ) ")
         if operator != "/" and operator != "*" and operator != "+" and operator != "-":
         # if you've picked an operator that is not in the list, you will go back to the previous step
             print("You've making a mistake, pick an operator between +, *, -, / : ")
             return multiple_operators()
-        b = float(input("Pick you're second number : "))
+        try:
+            b = float(input("Pick you're second number : "))
+        except ValueError: 
+            print("You've making a mistake, pick a number : ")
+            return multiple_operators()
         operator_ = input("Pick an operator : ( +, *, -, / ) ")
-        c = float(input("Pick you're third number : "))
+        try :
+            c = float(input("Pick you're third number : "))
+        except ValueError:
+            print("You've making a mistake, pick a number : ")
+            return multiple_operators()
         if operator == "+" and operator_ == "+" :
-        # all the conditions to calculs with 2 operators, with priority, impossible calculs and write the result in the history
+        # all the conditions to calculs with 2 operators, with priority, impossible calculs
             result=f"The result is : {a + b + c}"
             print(result)
-            save_history(f"Operation: {a} + {b} + {c} = {a + b + c}")
+            save_history(f" {a} + {b} + {c} = {a + b + c}")
             return Menu()
         elif operator == "+" and operator_ == "-" :
             result=f"The result is : {a + b - c}"
             print(result)
-            save_history(f"Operation: {a} + {b} - {c} = {a + b - c}")
+            save_history(f" {a} + {b} - {c} = {a + b - c}")
             return Menu()
         elif operator == "-" and operator_== "+" :
             result=f"The result is : {a - b + c}"
             print(result)
-            save_history(f"Operation: {a} - {b} + {c} = {a - b + c}")
+            save_history(f" {a} - {b} + {c} = {a - b + c}")
             return Menu()
         elif operator == "-" and operator_ == "-" :
             result=f"The result is : {a - b - c}"
             print(result)
-            save_history(f"Operation: {a} - {b} - {c} = {a - b - c}")
+            save_history(f" {a} - {b} - {c} = {a - b - c}")
             return Menu()  
         elif operator == "*" and operator_ == "*" :
             result=f"The result is : {a * b * c}"
             print(result)
-            save_history(f"Operation: {a} * {b} * {c} = {a * b * c}")
+            save_history(f" {a} * {b} * {c} = {a * b * c}")
             return Menu()
         elif operator == "*" and operator_ == "/" :
             if c == 0:
@@ -104,7 +118,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {a * b / c}"
             print(result)
-            save_history(f"Operation: {a} * {b} / {c} = {a * b / c}")
+            save_history(f" {a} * {b} / {c} = {a * b / c}")
             return Menu()
         elif operator == "/" and operator_ == "*" :
             if b == 0:
@@ -112,27 +126,27 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {a / b * c}"
             print(result)
-            save_history(f"Operation: {a} / {b} * {c} = {a / b * c}")
+            save_history(f" {a} / {b} * {c} = {a / b * c}")
             return Menu()
         elif operator == "*" and operator_ == "+" :
             result=f"The result is : {a * b + c}"
             print(result)
-            save_history(f"Operation: {a} * {b} + {c} = {a * b + c}")
+            save_history(f" {a} * {b} + {c} = {a * b + c}")
             return Menu()
         elif operator == "*" and operator_ == "-" :
             result=f"The result is : {a * b - c}"
             print(result)
-            save_history(f"Operation: {a} * {b} - {c} = {a * b - c}")
+            save_history(f" {a} * {b} - {c} = {a * b - c}")
             return Menu()
         elif operator == "+" and operator_ == "*" :
             result=f"The result is : {b * c + a}"
             print(result)
-            save_history(f"Operation: {b} * {c} + {a} = {b * c + a}")
+            save_history(f" {b} * {c} + {a} = {b * c + a}")
             return Menu()
         elif operator == "-" and operator_ == "*" :
             result=f"The result is : {b * c - a}"
             print(result)
-            save_history(f"Operation: {b} * {c} - {a} = {b * c - a}")
+            save_history(f" {b} * {c} - {a} = {b * c - a}")
             return Menu()
         elif operator == "/" and operator_ == "/" :
             if b == 0:
@@ -143,7 +157,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {a / b / c}"
             print(result)
-            save_history(f"Operation: {a} / {b} / {c} = {a / b / c}")
+            save_history(f" {a} / {b} / {c} = {a / b / c}")
             return Menu()
         elif operator == "/" and operator_ == "+" :
             if b  == 0:
@@ -151,7 +165,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {a / b + c}"
             print(result)
-            save_history(f"Operation: {a} / {b} + {c} = {a / b + c}")
+            save_history(f" {a} / {b} + {c} = {a / b + c}")
             return Menu()
         elif operator == "/" and operator_ == "-" :
             if b == 0:
@@ -159,7 +173,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {a / b - c}"
             print(result)
-            save_history(f"Operation: {a} / {b} - {c} = {a / b - c}")
+            save_history(f" {a} / {b} - {c} = {a / b - c}")
             return Menu()
         elif operator == "+" and operator_ == "/" :
             if c == 0:
@@ -167,7 +181,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {b / c + a}"
             print(result)
-            save_history(f"Operation: {b} / {c} + {a} = {b / c + a}")
+            save_history(f" {b} / {c} + {a} = {b / c + a}")
             return Menu()
         elif operator == "-" and operator_ == "/" :
             if c == 0:
@@ -175,7 +189,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {b / c - a}"
             print(result)
-            save_history(f"Operation: {b} / {c} - {a} = {b / c - a}")
+            save_history(f" {b} / {c} - {a} = {b / c - a}")
             return Menu()
         elif operator == "/" and operator_ == "*" :
             if b == 0:
@@ -183,7 +197,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {a / b * c}"
             print(result)
-            save_history(f"Operation: {a} / {b} * {c} = {a / b * c}")
+            save_history(f" {a} / {b} * {c} = {a / b * c}")
             return Menu()
         elif operator == "+" and operator_ == "/" :
             if c == 0:
@@ -191,7 +205,7 @@ def multiple_operators():
                 return multiple_operators() 
             result=f"The result is : {b / c + a}"
             print(result)
-            save_history(f"Operation: {b} / {c} + {a} = {b / c + a}")
+            save_history(f" {b} / {c} + {a} = {b / c + a}")
             return Menu()
         elif operator == "-" and operator_ == "/" :
             if c == 0:
@@ -199,7 +213,7 @@ def multiple_operators():
                 return multiple_operators()
             result=f"The result is : {b / c - a}"
             print(result)
-            save_history(f"Operation: {b} / {c} - {a} = {b / c - a}")
+            save_history(f" {b} / {c} - {a} = {b / c - a}")
             return Menu()
         elif operator == "*" and operator_ == "/" :
             if c == 0:
@@ -207,7 +221,7 @@ def multiple_operators():
                 return multiple_operators() 
             result=f"The result is : {a * b / c}"
             print(result)
-            save_history(f"Operation: {a} * {b} / {c} = {a * b / c}")
+            save_history(f" {a} * {b} / {c} = {a * b / c}")
             return Menu()
     except KeyboardInterrupt:
         print("\nOperation interrupted. You're back to the main menu.")
@@ -227,47 +241,82 @@ def calcul():
         os.system("cls")
         if choice == "1":
             print ("So, you choose to do a addition, pick two numbers : ")
-            a = float(input("Pick you're firt number : "))
-            b = float(input("Pick tou're second number : "))
+            try:
+                a = float(input("Pick you're firt number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
+            try:
+                b = float(input("Pick tou're second number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
             result=f"The result is : {a + b}"
             print(result)
-            save_history(f"Operation: {a} + {b} = {a + b}")
+            save_history(f" {a} + {b} = {a + b}")
             return Menu()
             # when you have the reslt you go back to the main menu
         elif choice == "2":
             print ("So, you choose to do a substraction, pick two numbers : ")
-            a = float(input("Pick you're first number : "))
-            b = float(input("Pick you're second number : "))
+            try:
+                a = float(input("Pick you're firt number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
+            try:
+                b = float(input("Pick tou're second number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
             result=f"The result is : {a - b}"
             print(result)
-            save_history(f"Operation: {a} - {b} = {a - b}")
+            save_history(f" {a} - {b} = {a - b}")
             return Menu()
         elif choice  == "3":
             print ("So, you choose to do a multiplication, pick two numbers : ")
-            a = float(input("Pick you're first number : "))
-            b = float(input("Pick you're second number : "))
+            try:
+                a = float(input("Pick you're firt number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
+            try:
+                b = float(input("Pick tou're second number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
             result=f"The result is : {a * b}"   
             print(result)
-            save_history(f"Operation: {a} * {b} = {a * b}")
+            save_history(f" {a} * {b} = {a * b}")
             return Menu()
         elif choice  == "4":
             print ("So, you choose to do a division, pick two numbers : ")
-            a = float(input("Pick you're first number : "))
-            b = float(input("Pick you're second number : "))
+            try:
+                a = float(input("Pick you're firt number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
+            try:
+                b = float(input("Pick tou're second number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
             if b == 0:
                 print("you can't divide by 0 : ")
                 return calcul()
             result=f"The result is : {a / b}"
             print(result)
-            save_history(f"Operation: {a} / {b} = {a / b}")
+            save_history(f" {a} / {b} = {a / b}")
             return Menu()
         elif choice  == "5":
             print ("So, you choose to do a percentage, pick two numbers : ")       
-            a = float(input("Pick you're first number : "))
-            b = float(input("Pick you're second number : "))
+            try:
+                a = float(input("Pick you're firt number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
             result=f"The result is : {a % b}"
             print(result)
-            save_history(f"Operation: {a} % {b} = {a % b}")
+            save_history(f" {a} % {b} = {a % b}")
             return Menu()
         elif choice  == "6":
             print ("So you're back to the main menu.")
