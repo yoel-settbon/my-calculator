@@ -6,7 +6,6 @@ def menu():
     while True:
         try:
             user_input = int(input("choose an option : 1, 2 or 3 "))
-
         except ValueError:
             print("incorrect entry")
             menu()
@@ -18,7 +17,7 @@ def menu():
         elif user_input == 2:
             print("second option")
             plusieurs_terme()
-
+    
         elif user_input == 3:
             print("Quit")
             break
