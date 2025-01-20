@@ -30,10 +30,10 @@ def Menu():
         os.system("cls")
     # after you've picked a number, the menu will be clear
         if choice == "1":
-            print ("So, you choose to do a operation with one operator : ")
+            print ("So, you chose to do a operation with one operator : ")
             return calcul()
         elif choice  == "2":
-            print ("So, you choose to do a operation with 3 numbers, pick three numbers : ")
+            print ("So, you chose to do an operation with 3 numbers, pick three numbers : ")
             return multiple_operators()
         elif choice  == "3":
             print ("This is the history of your calculations : ")
@@ -42,7 +42,7 @@ def Menu():
                     print(line.strip())
             return Menu()
         elif choice  == "4":
-            print ("You're history has been deleted : ")
+            print ("Your history has been deleted : ")
             delete_history()
             return Menu()
         elif choice  == "5":
@@ -51,7 +51,7 @@ def Menu():
             os.system("cls")
         else:
         # if you've picked a number that is not in the menu, it will return an error message
-            print("No you've making a mistake, pick a number between 1 and 5 : ")
+            print("No you've made a mistake, pick a number between 1 and 5 : ")
             return Menu()
     except KeyboardInterrupt:
         # you can quit the program by pressing ctrl + c
@@ -61,30 +61,30 @@ def Menu():
         exit()
 
 def multiple_operators():
-    # function to do a operation with 3 numbers and 2 operators
+    # function to do an operation with 3 numbers and 2 operators
     try:
         try:
 
-            a = float(input("Pick you're first number : "))
+            a = float(input("Pick your first number : "))
         except ValueError:
-            # if you've choice is not a number, you will go back to the previous step
-            print("You've making a mistake, pick a number : ")
+            # if your choice is not a number, you will go back to the previous step
+            print("You've made a mistake, pick a number : ")
             return multiple_operators()
         operator = input("Pick an operator : ( +, *, -, / ) ")
         if operator != "/" and operator != "*" and operator != "+" and operator != "-":
         # if you've picked an operator that is not in the list, you will go back to the previous step
-            print("You've making a mistake, pick an operator between +, *, -, / : ")
+            print("You've made a mistake, pick an operator between +, *, -, / : ")
             return multiple_operators()
         try:
-            b = float(input("Pick you're second number : "))
+            b = float(input("Pick your second number : "))
         except ValueError: 
-            print("You've making a mistake, pick a number : ")
+            print("You've made a mistake, pick a number : ")
             return multiple_operators()
         operator_ = input("Pick an operator : ( +, *, -, / ) ")
         try :
-            c = float(input("Pick you're third number : "))
+            c = float(input("Pick your third number : "))
         except ValueError:
-            print("You've making a mistake, pick a number : ")
+            print("You've made a mistake, pick a number : ")
             return multiple_operators()
         if operator == "+" and operator_ == "+" :
         # all the conditions to calculs with 2 operators, with priority, impossible calculs
@@ -239,65 +239,65 @@ def calcul():
         choice = input("Pick an opperation : ")
         os.system("cls")
         if choice == "1":
-            print ("So, you choose to do a addition, pick two numbers : ")
+            print ("So, you chose to do an addition, pick two numbers : ")
             try:
-                a = float(input("Pick you're firt number : "))
+                a = float(input("Pick your firt number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             try:
-                b = float(input("Pick tou're second number : "))
+                b = float(input("Pick your second number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             result=f"The result is : {a + b}"
             print(result)
             save_history(f" {a} + {b} = {a + b}")
             return Menu()
-            # when you have the reslt you go back to the main menu
+            # when you have the result you go back to the main menu
         elif choice == "2":
-            print ("So, you choose to do a substraction, pick two numbers : ")
+            print ("So, you chose to do a substraction, pick two numbers : ")
             try:
-                a = float(input("Pick you're firt number : "))
+                a = float(input("Pick your firt number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             try:
-                b = float(input("Pick tou're second number : "))
+                b = float(input("Pick your second number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             result=f"The result is : {a - b}"
             print(result)
             save_history(f" {a} - {b} = {a - b}")
             return Menu()
         elif choice  == "3":
-            print ("So, you choose to do a multiplication, pick two numbers : ")
+            print ("So, you chose to do a multiplication, pick two numbers : ")
             try:
-                a = float(input("Pick you're firt number : "))
+                a = float(input("Pick your firt number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             try:
-                b = float(input("Pick tou're second number : "))
+                b = float(input("Pick your second number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             result=f"The result is : {a * b}"   
             print(result)
             save_history(f" {a} * {b} = {a * b}")
             return Menu()
         elif choice  == "4":
-            print ("So, you choose to do a division, pick two numbers : ")
+            print ("So, you chose to do a division, pick two numbers : ")
             try:
-                a = float(input("Pick you're firt number : "))
+                a = float(input("Pick your firt number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             try:
-                b = float(input("Pick tou're second number : "))
+                b = float(input("Pick your second number : "))
             except ValueError:
-                print("You've making a mistake, pick a number : ")
+                print("You've made a mistake, pick a number : ")
                 return calcul()
             if b == 0:
                 print("you can't divide by 0 : ")
