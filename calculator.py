@@ -20,7 +20,7 @@ def save_history(result):
 def Menu():
     # function to display the main menu of the calculator
     try:
-        print ("you want to do a operation with one or two operators ?")
+        print ("Choose what you want to do ?")
         print ("1. One operator")
         print ("2. Two operators")
         print ("3. Show history")
