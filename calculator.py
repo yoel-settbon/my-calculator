@@ -235,8 +235,7 @@ def calcul():
         print ("2. Substraction")
         print ("3. Multiplication")
         print ("4. Division")
-        print ("5. Percentage")
-        print ("6. Return to the main menu")
+        print ("5. Return to the main menu")
         choice = input("Pick an opperation : ")
         os.system("cls")
         if choice == "1":
@@ -308,26 +307,10 @@ def calcul():
             save_history(f" {a} / {b} = {a / b}")
             return Menu()
         elif choice  == "5":
-            print ("So, you choose to do a percentage, pick two numbers : ")       
-            try:
-                a = float(input("Pick you're firt number : "))
-            except ValueError:
-                print("You've making a mistake, pick a number : ")
-                return calcul()
-            try:
-                b = float(input("Pick tou're second number : "))
-            except ValueError:
-                print("You've making a mistake, pick a number : ")
-                return calcul()
-            result=f"The result is : {a % b}"
-            print(result)
-            save_history(f" {a} % {b} = {a % b}")
-            return Menu()
-        elif choice  == "6":
             print ("So you're back to the main menu.")
             return Menu()
         else:
-            print("You're making a mistake, pick a number between 1 and 6 : ")
+            print("You're making a mistake, pick a number between 1 and 5 : ")
             return calcul()
     except KeyboardInterrupt:
         print("\nOperation interrupted. You're back to the main menu.")
