@@ -314,6 +314,11 @@ def calcul():
             except ValueError:
                 print("You've making a mistake, pick a number : ")
                 return calcul()
+            try:
+                b = float(input("Pick tou're second number : "))
+            except ValueError:
+                print("You've making a mistake, pick a number : ")
+                return calcul()
             result=f"The result is : {a % b}"
             print(result)
             save_history(f" {a} % {b} = {a % b}")
